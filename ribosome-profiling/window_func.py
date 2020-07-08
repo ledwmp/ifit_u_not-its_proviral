@@ -1,3 +1,9 @@
+#!/usr/bin python
+_author_ = "Mitch Ledwith"
+"""
+a bunch of auxiliary functions to scan_coverage_for_peak.py
+"""
+
 from scipy import stats
 import numpy as np
 
