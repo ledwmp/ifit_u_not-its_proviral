@@ -15,7 +15,7 @@ with open(sys.argv[2]) as r:
 		new_line = line.split("\t")
 		sample_index[new_line[2].strip()] = new_line[1].strip()
 
-sample_index["Unidentified_barcode"] = "#arguments debarcody.py fastq_file barcode_file"	
+sample_index["Unidentified_barcode"] = "Unidentified_barcode"	
 print sample_index
 
 for key,value in sample_index.iteritems():
