@@ -1,3 +1,10 @@
+#!/usr/bin python
+_author_ = "Mitch Ledwith"
+
+"""
+arguments concat_coverage.py file1.depth,file2.depth,file3.depth,...
+As it turns out, bedtools coverage of a bam over a bed produces a massive and difficult to read file. This script takes the output of many bedtools coverages and concatenates it together to make it easier to parse. 
+"""
 import sys
 import numpy as np
 import itertools
