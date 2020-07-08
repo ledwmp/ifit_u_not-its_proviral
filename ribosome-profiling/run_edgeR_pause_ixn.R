@@ -19,7 +19,7 @@ group.pause <- factor(c("wtmo","wtixn","D8mo","D8ixn","wtmo","wtixn","D8mo","D8i
 design.pause <- model.matrix(~0+group.pause)
 colnames(design.pause) <- levels(group.pause)
 
-read_offset <- read.delim("pause_ribo_offsetsscaled.txt") #takes scaled offsets of ribo-seq DE
+read_offset <- read.delim("pause_ribo_offsetsscaled.txt") #takes offsets scaled to ribo-seq fold-change
 read_offset <- read_offset[,c(2,3,4,5,6,7,8,9)]
 read_offset <- as.matrix(read_offset)
 
