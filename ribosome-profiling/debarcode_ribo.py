@@ -1,5 +1,13 @@
+#!/usr/bin python
+_author_ = "Mitch Ledwith"
+"""
+arguments debarcody_ribo.py fastq_file barcode_file
+Splits a fastq depending on barcodes defined in barcode_file
+Specific for shorter barcodes used during ribo protocol
+"""
+
+
 import sys
-#arguments debarcody.py fastq_file barcode_file
 print sys.argv
 
 sample_index = {}
@@ -8,13 +16,14 @@ with open(sys.argv[2]) as r:
 	for line in r:
 		new_line = line.split("\t")
 		sample_index[new_line[2].strip()] = new_line[1].strip()
-		
+
+sample_index["Unidentified_barcode"] = "Unidentifed_barcode"			
 print sample_index
 for key,value in sample_index.iteritems():
-	exec("open_%s=open('/media/mitch/TopSeqret_NTFS/RIBO/%s.fastq','a')" % (key,value))
+	exec("open_%s=open('%s.fastq','a')" % (key,value))
 
-write_none = open("/media/mitch/TopSeqret_NTFS/RIBO/nobarcode.fastq",'a') #bad barcodes
-write_log = open("/media/mitch/TopSeqret_NTFS/RIBO/debarcode.log","a") #log
+write_none = open("nobarcode.fastq",'a') #bad barcodes
+write_log = open("debarcode.log","a") #log
 
 result_dict = {}
 
@@ -53,6 +62,9 @@ with open(sys.argv[1]) as r:
 			exec("write_none.write('%s')" % (qual[11:]))
 			write_none.write('\n')
 			result_dict["Unidentified_barcode"] = result_dict["Unidentified_barcode"]+ 1.0
+r.close()
+for key,value in sample_index.iteritems():
+	exec("open_%s.close()" % (key))
 
 for key,value in result_dict.iteritems():
 	write_log.write(sample_index[key] + "\t" + key + "\t" + str(value) + "\n")
