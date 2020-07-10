@@ -3,7 +3,7 @@ _author_ = "Mitch Ledwith"
 """
 arguments debarcody_ribo.py fastq_file barcode_file
 Splits a fastq depending on barcodes defined in barcode_file
-Specific for shorter barcodes used during ribo protocol
+Specific for longer barcodes used during ribo protocol
 """
 
 
