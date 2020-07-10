@@ -1,3 +1,11 @@
+#!/usr/bin python
+_author_ = "Mitch Ledwith"
+
+"""
+arguments read_count_avb_wcolor_finalixn.py rna_DE.txt ribo_DE.txt TE_DE.txt
+Plots logfc_rna v. logfc_ribo and overlays TE
+"""
+
 import sys
 import numpy as np 
 import matplotlib.pyplot as plt
