@@ -4,6 +4,6 @@
 
 ## IFIT2 eCLIP
 Trim multiplexed sequencing file with bbudk
-''' bash
+```bash
 bbduk.sh in=<seq_file.fastq> out=<seq_file_trimmed.fastq> qtrim=r literal=CTGTAGGCACCATCAATCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG ktrim=r k=21 mink=10 hdist=1
-'''
+```
