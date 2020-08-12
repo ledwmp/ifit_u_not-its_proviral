@@ -82,8 +82,12 @@ python make_heatmap_peakcoverage.py CLIP1.depth CLIP2.depth SMin1.depth SMin2.de
 Intersect and separate peaks with [5'UTR,3'UTR, and CDS](https://github.com/mehlelab/ifit_u_not-its_proviral/tree/master/clip/bed) derived from GRCh38 gtf
 ```bash
 bedtools intersect -a <idr_protein_coding.bed> -b <5UTR.bed> <CDS.bed> <3UTR.bed> -s -wo > <idr_proteing_coding_intersect.bed> 
-
-b. split_CLIP_meta.py
+```
+[Split]() and [plot]() the intersect
+```bash
+python split_CLIP_meta.py <idr_protein_coding_intersect.bed>
+python count_CLIP_meta.py <idr_protein_coding_intersect.bed> <out_file>
+```
 16. Calculate FPKM of CLIP origin mRNAs compared to expressed mRNAs with custom python
 script.
 a. fpkm_distribution.py
