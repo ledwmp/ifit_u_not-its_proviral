@@ -1,3 +1,8 @@
+#!/usr/bin python
+_author_ = "Mitch Ledwith"
+"""
+arguments fpkm_distribution.py clipped_genes.txt out_file
+"""
 import sys
 import numpy as np
 from scipy.stats import ranksums,ttest_ind
@@ -9,7 +14,7 @@ import matplotlib.pyplot as plt
 
 FPKM_dict = {}
 
-with open("/home/mitch/Desktop/IFIT2_CLIP_temp/alt_pvalue/protein_coding/meta_intersect/chi2_geneontology/FPKM_group_novogene_filterwFPKM.txt") as r:
+with open("FPKM_group_novogene_filterwFPKM.txt") as r:
 	for line in r:
 		FPKM_dict[line.split("\t")[0]] = float(line.split("\t")[1].strip())
 
@@ -42,12 +47,13 @@ def return_xgrid(tmp_list):
 	points = len(tmp_list)
 	#return np.linspace(low,high,1000)[:, np.newaxis]
 	return np.linspace(0.0,4.5,1000)[:,np.newaxis]
-
+"""
 #def find_bandwidth(x):
 	bandwidths = 10**np.linspace(-1,1,100)
 	grid = GridSearchCV(KernelDensity(kernel="gaussian"),{"bandwidth":bandwidths},cv=LeaveOneOut(len(x)))
 	grid.fit(x[:,None]);
 	return grid.best_params
+"""
 ranksums,pvalue = ranksums(log_FPKM,log_CLIP)
 print str(pvalue)
 ttestind,pvalue = ttest_ind(log_FPKM,log_CLIP,equal_var=False)
@@ -66,5 +72,5 @@ plt.ylabel("Probability")
 plt.tick_params(direction="out")
 plt.xlim(0.0,)
 plt.ylim(0.0,)
-#plt.savefig(sys.argv[-1]+".svg")
+plt.savefig(sys.argv[-1]+".svg")
 plt.show()
