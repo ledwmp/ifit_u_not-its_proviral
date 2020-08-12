@@ -1,3 +1,11 @@
+#!/usr/bin python
+_author_ = "Mitch Ledwith"
+
+"""
+arguments make_heatmap_peakcoverage.py CLIP1.depth CLIP2.depth SMin1.depth SMin2.depth out_file
+Makes a heatmap
+"""
+
 import sys
 from collections import Counter
 import numpy as np 
