@@ -63,7 +63,15 @@ Count and display overlapping meta-features with [count_CLIP_metabiotype.py](htt
 ```bash
 python count_CLIP_metabiotype.py intersect.bed out_file
 ```
-
+Filter protein-coding genes with bedtools intersect and [protein_coding.bed](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/clip/bed/Homo_sapiens.GRCh38.95_merge_5_3_CDS_collapse.bed)
+```bash
+bedtools intersect -a <idr.bed> -b <protein_coding.bed> -wa -s -split > <idr_protein_coding.bed>
+```
+Calculate bam coverage over CLIP peaks with bedtools coverage
+```bash
+bedtools coverage -a <idr_protein_coding.bed> -b <index_dedup.bam> -d -split -s > <index_dedup.depth>
+```
+Filter peaks on 4-fold change (CLIP/input) and relative coverage with 
 
 Filter on protein-coding genes with custom python script.
 -18
@@ -83,10 +91,6 @@ a. fasta_peak_to_gc_kde.py
 18. Calculate length of sub-mRNA regions on CLIPped transcripts and compare to the same
 regions in all expressed mRNAs with custom python script.
 a. bed12_bed6_length_kde.py
-19. Perform saturation analysis with custom python script by testing peak recall on sub-
-sampled bams with CLIPper.
-a. Sub-sample 50% of bam, determine % of peaks that can be re-discovered with half of
-the input data.
 
 
 ## Ribosome profiling
