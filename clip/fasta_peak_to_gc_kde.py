@@ -1,8 +1,13 @@
+#!/usr/bin python
+_author_ = "Mitch Ledwith"
+"""
+arguments fasta_peak_to_gc_kde.py CLIP_peaks.fasta sub_region.fasta out_file
+"""
 from Bio import SeqIO
 from collections import Counter
 import matplotlib.pyplot as plt
 import numpy as np
-import sys #arguments #1 = CLIP_peaks.fasta, UTR.fasta
+import sys 
 from scipy.stats import ranksums,ttest_ind
 from sklearn.neighbors import KernelDensity
 #from sklearn.grid_search import GridSearchCV
