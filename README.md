@@ -7,3 +7,11 @@ Trim multiplexed sequencing file with bbudk
 ```bash
 bbduk.sh in=<seq_file.fastq> out=<seq_file_trimmed.fastq> qtrim=r literal=CTGTAGGCACCATCAATCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG ktrim=r k=21 mink=10 hdist=1
 ```
+De-multiplex and slice UMIs with [debarcode.py](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/clip/debarcode.py)
+```bash
+python debarcody.py <seq_file_trimmed.fastq> <barcode_file.txt>
+```
+where barcode file takes form:
+```
+barcode_in_primer_orientation\tindex_number\tbarcode_in_seq_orientation
+```
