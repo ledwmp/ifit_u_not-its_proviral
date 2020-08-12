@@ -1,3 +1,11 @@
+#!/usr/bin python
+_author_ = "Mitch Ledwith"
+
+"""
+arguments plot_coverage_CLIPvexpression.py CLIP1.depth CLIP2.depth SMin1.depth SMin2.depth
+Perform a 2 log2 cutoff over input and 2^-18 coverage cutoff
+"""
+
 import sys
 from collections import Counter
 import numpy as np 
@@ -6,7 +14,7 @@ import scipy.stats as stats
 
 #11	62841604	62841776	.	1000	-	10	1671
 coverage_dict = {}
-with open("/media/mitch/TopSeqret_NTFS/CLIP_Lib1_16/fastq/Alignments/pcr_dedup/IFIT2_CLIP/coverage/coverage_total.txt") as r:
+with open("coverage_total.txt") as r:
 	for line in r:
 		coverage_dict[line.split("\t")[0]] = float(line.split("\t")[1].strip())
 r.close()
