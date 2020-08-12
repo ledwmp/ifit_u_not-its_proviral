@@ -51,6 +51,43 @@ Collapse overlapping transcripts with [mergetranscriptpeaks.py](https://github.c
 ```bash
 python mergetranscriptpeaks.py <input_norm.bed>
 ```
+Run irreproducible discovery rate analysis on replicates using IDR with ranking performed on -log10(pvalue) from clipper
+```bash
+idr.sh -s rep1_input_norm.bed rep2_input_norm.bed --plot --rank 5 --input-file-type bed -o <idr.bed>
+```
+Intersect bed with [gene_biotype.bed](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/clip/bed/Homo_sapiens.GRCh38.95_gene_biotype.bed derived from GRCh38 gtf 
+```bash
+bedtools intersect -a <idr.bed> -b <gene_biotype.bed> -split -s -wo <idr_biotype.bed>
+```
+Count and display overlapping meta-features with [count_CLIP_metabiotype.py](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/clip/count_CLIP_metabiotype_new.py)
+```bash
+python count_CLIP_metabiotype.py intersect.bed out_file
+```
+
+
+Filter on protein-coding genes with custom python script.
+-18
+Filter on 2 log fold-change (CLIP/input) and relative proportion of dataset (>10^
+average coverage) with custom python script.
+a. plot_coverage_CLIPvexpression.py
+
+15. Intersect and segregate clusters with protein coding mRNAs with custom python script.
+a. Intersect with bed file split on 5’UTR,3’UTR, and CDS derived from GRCh38 gtf
+b. split_CLIP_meta.py
+16. Calculate FPKM of CLIP origin mRNAs compared to expressed mRNAs with custom python
+script.
+a. fpkm_distribution.py
+17. Calculate GC-content of clusters compared to all corresponding sub-mRNA regions that are
+expressed with custom python script.
+a. fasta_peak_to_gc_kde.py
+18. Calculate length of sub-mRNA regions on CLIPped transcripts and compare to the same
+regions in all expressed mRNAs with custom python script.
+a. bed12_bed6_length_kde.py
+19. Perform saturation analysis with custom python script by testing peak recall on sub-
+sampled bams with CLIPper.
+a. Sub-sample 50% of bam, determine % of peaks that can be re-discovered with half of
+the input data.
+
 
 ## Ribosome profiling
 Map to human rRNA contig (NT_167214.1) using hisat2
