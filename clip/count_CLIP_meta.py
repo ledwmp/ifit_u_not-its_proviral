@@ -1,3 +1,8 @@
+#!/usr/bin python
+_author_ = "Mitch Ledwith"
+"""
+arguments count_CLIP_meta.py intersect_file.bed out_file
+"""
 import sys
 from collections import Counter
 import matplotlib.pyplot as plt
