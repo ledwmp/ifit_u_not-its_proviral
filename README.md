@@ -71,16 +71,18 @@ Calculate bam coverage over CLIP peaks with bedtools coverage
 ```bash
 bedtools coverage -a <idr_protein_coding.bed> -b <index_dedup.bam> -d -split -s > <index_dedup.depth>
 ```
-Filter peaks on 4-fold change (CLIP/input) and relative coverage with 
+Filter peaks on 4-fold change (CLIP/input) and relative coverage with [plot_coverage_CLIPvexpression.py](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/clip/plot_coverage_CLIPvexpression.py)
+```bash
+python plot_coverage_CLIPvexpression.py CLIP1.depth CLIP2.depth SMin1.depth SMin2.depth
+```
+Make heatmaps of peak coverage with [make_heatmap_peakcoverage.py](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/clip/make_heatmap_peakcoverage.py)
+```bash
+python make_heatmap_peakcoverage.py CLIP1.depth CLIP2.depth SMin1.depth SMin2.depth CLIP3.depth CLIP4.depth out_file
+```
+Intersect and separate peaks with [5'UTR,3'UTR, and CDS](https://github.com/mehlelab/ifit_u_not-its_proviral/tree/master/clip/bed) derived from GRCh38 gtf
+```bash
+bedtools intersect -a <idr_protein_coding.bed> -b <5UTR.bed> <CDS.bed> <3UTR.bed> -s -wo > <idr_proteing_coding_intersect.bed> 
 
-Filter on protein-coding genes with custom python script.
--18
-Filter on 2 log fold-change (CLIP/input) and relative proportion of dataset (>10^
-average coverage) with custom python script.
-a. plot_coverage_CLIPvexpression.py
-
-15. Intersect and segregate clusters with protein coding mRNAs with custom python script.
-a. Intersect with bed file split on 5’UTR,3’UTR, and CDS derived from GRCh38 gtf
 b. split_CLIP_meta.py
 16. Calculate FPKM of CLIP origin mRNAs compared to expressed mRNAs with custom python
 script.
