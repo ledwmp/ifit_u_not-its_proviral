@@ -54,7 +54,7 @@ Run irreproducible discovery rate analysis on replicates using IDR with ranking 
 idr.sh -s rep1_input_norm.bed rep2_input_norm.bed --plot --rank 5 --input-file-type bed -o <idr.bed>
 ```
 ## Peak characterization
-Intersect bed with [gene_biotype.bed](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/clip/bed/Homo_sapiens.GRCh38.95_gene_biotype.bed derived from GRCh38 gtf 
+Intersect bed with [gene_biotype.bed](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/clip/bed/Homo_sapiens.GRCh38.95_gene_biotype.bed) derived from GRCh38 gtf 
 ```bash
 bedtools intersect -a <idr.bed> -b <gene_biotype.bed> -split -s -wo <idr_biotype.bed>
 ```
