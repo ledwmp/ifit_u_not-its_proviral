@@ -40,9 +40,9 @@ QC RPF libraries by phasing using plastid
 ```bash
 phase_by_size <GRCh38_start_rois.txt <out_name> --count_files <dedup.bam> --fiveprime_variable --offset <psite_offsets.txt> --codon_buffer 5 --min_length 20 --max_length 40
 ```
-## Count libraries
+## Counting and DE analysis 
 Count RPFs and RNAs using featureCounts
 ```bash
 featureCounts -T <> -s 1 -t exon -g gene_id -a <GRCh38_WSN.gtf> -o <dedup_counts.txt> <dedup.bam>
 ```
-
+Perform DE using edgeR and 
