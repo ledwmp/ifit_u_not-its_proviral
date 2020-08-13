@@ -23,5 +23,5 @@ my.contrasts <- makeContrasts(D8vwtmo = D8mo-wtmo,D8vwtixn = D8ixn-wtixn,wtixnno
 qlf <- glmQLFTest(fit,contrast=my.contrasts[,"D8vwtixnnorm"])
 tab <- topTags(qlf,n=Inf)
 
-write.table(tab,file="/home/mitch/Desktop/ribo/counts/DE/D8vswtixnnorm.txt",append=FALSE,sep="\t")
+write.table(tab,file="D8vswtixnnorm.txt",append=FALSE,sep="\t")
 
