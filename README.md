@@ -6,11 +6,4 @@
 Follows eCLIP pipeline from Yeo lab pretty closely, with much of the code translated to python. Detailed pipeline [here](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/clip/clip.md)
 
 ## Ribosome profiling
-Map to human rRNA contig (NT_167214.1) using hisat2
-```bash
-hisat2 -p <> -x <path to rRNA index> -U <index_number_trimmed.fastq> -S <index_aligned.sam>
-```
-Filter out rRNA
-```bash
-samtools fastq -f 4 <index_aligned.sam> > <index_unaligend.fastq>
-```
+A general ribosome-profiling pipeline with code to quantify pausing [here](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/ribosome-profiling/ribosome.md)
