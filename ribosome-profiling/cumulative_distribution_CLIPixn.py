@@ -1,3 +1,10 @@
+#!/usr/bin python
+_author_ = "Mitch Ledwith"
+"""
+arguments cumulative_distribution_CLIPixn.py DE_file.txt
+Plots cumulative distribution curves
+"""
+
 import sys
 import numpy as np 
 import matplotlib.pyplot as plt
@@ -15,7 +22,7 @@ dict_a = {k:v for k,v,j in zip(gene_id,logfc,logcpm) if j > 5}
 
 plt.figure(figsize=(5,5))
 
-CLIP_list = np.loadtxt("/home/mitch/Desktop/ribo/1_9_idr_altpvalue_540_bed6_proteincoding_filter_genes.txt",dtype=str,delimiter="\t", usecols=(0,))
+CLIP_list = np.loadtxt("IFIT2ixn_CLIPgenes.txt",dtype=str,delimiter="\t", usecols=(0,))
 
 CLIP_zip = {}
 for item in CLIP_list:
@@ -74,5 +81,5 @@ plt.xlim(-1.5,1.5)
 #plt.xlim(-1.0,1.0)
 plt.ylim(0,1)
 
-#plt.savefig("ixnTE.svg")
+plt.savefig("ixnTE.svg")
 plt.show()
