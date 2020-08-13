@@ -51,7 +51,7 @@ And perform differential TE analysis with two-factor design using [run_edgeR_rib
 
 Finally, perform IFIT2 CLIP cross-analyses with [cumulative_distribution_CLIPixn.py](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/ribosome-profiling/cumulative_distribution_CLIPixn.py)
 ```bash
-python cumulative_distribution_CLIPixn.py DEfile.txt
+python cumulative_distribution_CLIPixn.py <DEfile.txt>
 ```
 ## Identifying and quantifying pausing
 Calculate coverage over genome with bedtools coverage
@@ -60,11 +60,11 @@ bedtools coverage -sorted -a <GRCh38_CDS.bed> -b <dedup.bam> -s -split -d -g <GR
 ```
 Concatenate coverage files together with [concat_coverage.py](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/ribosome-profiling/concat_coverage.py)
 ```bash
-python concat_coverage.py dedup1.depth dedup2.depth
+python concat_coverage.py <dedup1.depth> <dedup2.depth>
 ```
 Scan CDS for regions that appear to have piled-up ribosomes with [scan_coverage_for_peak.py](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/ribosome-profiling/scan_coverage_for_peak.py)
 ```bash
-python scan_coverage_for_peak.py
+python scan_coverage_for_peak.py <concatdepth.txt>
 ```
 The above script outputs a bed file that can be intersected with bams via bedtools to get reads overlapping bed interval
 
