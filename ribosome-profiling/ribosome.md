@@ -67,4 +67,14 @@ Scan CDS for regions that appear to have piled-up ribosomes with [scan_coverage_
 python scan_coverage_for_peak.py <concatdepth.txt>
 ```
 The above script outputs a bed file that can be intersected with bams via bedtools to get reads overlapping bed interval
+```bash
+bedtools coverage -a <pause_bed.bed> -b <dedup.bam> -s -split -counts -F 0.5 > <pause.depth>
+```
+Parse depth files into count file using [prep_pause.py](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/ribosome-profiling/prep_pause.py)
+```bash
+python prep_pause.py <pause1.depth> <pause2.depth> ...
+```
+Perform DE analysis for pause bed with two-factor design using [run_edeR_pause_ixn.R](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/ribosome-profiling/run_edgeR_pause_ixn.R) which accounts for changes in the mean abundance of RPFs along every CDS 
+
+
 
