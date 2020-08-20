@@ -1,3 +1,9 @@
+#!/usr/bin python
+_author_ = "Mitch Ledwith"
+"""
+arguments cumulative_distribution_CLIP_combinepeaks_delta_final DE_file.txt FPKM_file.txt
+Plots cumulative distribution curves
+"""
 import sys
 import numpy as np 
 import matplotlib.pyplot as plt
@@ -51,7 +57,7 @@ for i,j in max_fc_dict.iteritems():
 
 plt.figure(figsize=(5,5))
 
-CLIP_list = np.loadtxt("/home/mitch/Desktop/ribo/1_9_idr_altpvalue_540_bed6_proteincoding_filter_genes.txt",dtype=str,delimiter="\t", usecols=(0,))
+CLIP_list = np.loadtxt("CLIP_genes.txt",dtype=str,delimiter="\t", usecols=(0,))
 
 CLIP_zip = {}
 for item in CLIP_list:
@@ -98,5 +104,5 @@ plt.xlim(0,3)
 plt.ylim(0,1)
 
 
-#plt.savefig("ixndeltapause.svg")
+plt.savefig("ixndeltapause.svg")
 plt.show()
