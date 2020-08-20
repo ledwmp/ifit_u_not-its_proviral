@@ -48,7 +48,7 @@ qlf.total
 tab.total <- topTags(qlf.total,n=Inf)
 
 
-write.table(tab.total,file="D8_pause_D8vwtixnnorm.txt",append=FALSE,sep="\t")
+write.table(tab.total,file="pause_KOvwtixnnorm.txt",append=FALSE,sep="\t")
 
 
 
