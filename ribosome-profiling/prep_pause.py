@@ -1,3 +1,11 @@
+#!/usr/bin python
+_author_ = "Mitch Ledwith"
+
+"""
+arguments prep_pause.py depth_file1 depth_file2
+where depth file is output of bedtools coverage against pause bed
+"""
+
 import sys
 import numpy as np
 
