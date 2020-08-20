@@ -74,7 +74,10 @@ Parse depth files into count file using [prep_pause.py](https://github.com/mehle
 ```bash
 python prep_pause.py <pause1.depth> <pause2.depth> ...
 ```
-Perform DE analysis for pause bed with two-factor design using [run_edeR_pause_ixn.R](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/ribosome-profiling/run_edgeR_pause_ixn.R) which accounts for changes in the mean abundance of RPFs along every CDS 
+Perform DE analysis for pause bed with two-factor design using [run_edeR_pause_ixn.R](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/ribosome-profiling/run_edgeR_pause_ixn.R) which accounts for changes in the mean abundance of RPFs along every CDS between IFIT2 KO and WT cells
 
-
-
+Perform IFIT2 CLIP cross-analyses with [cumulative_distribution_CLIP_combinepeaks_delta_final.py](https://github.com/mehlelab/ifit_u_not-its_proviral/blob/master/ribosome-profiling/cumulative_distribution_CLIP_combinepeaks_delta_final.py) which calculates the FC between the max and min called peaks between IFIT2 KO and WT. Second argument is file with average RPKMs out of RPF libraries
+```bash
+python cumulative_distribution_CLIP_combinepeaks_delta_final.py <pauseDE.txt> <RPKMribo.txt>
+```
+Finally, differential comparisons between IFIT2 KO and WT cells were made by using a two-filter threshold of a 1.5-fold increase in both a two-factor DE design and a single-factor DE design
