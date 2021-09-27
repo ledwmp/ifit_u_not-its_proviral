@@ -63,7 +63,7 @@ def pcr_collapser(input_sam):
 for item in sys.argv[2:]: #WHO IS JACK SPRAT?
 	pcr_collapser(item)
 out_log.close()	
-print "I'm done! :)" #if this works first try, celebrate at the library
+print "I'm done! :)" 
 				
 		
 	
